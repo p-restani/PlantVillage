@@ -12,11 +12,13 @@ git clone https://github.com/p-restani/PlantVillage.git
 cd PlantVillage
 ```
 
-#### 2. Download the Dataset
+
+### 2. Download the Dataset
 Download the PlantVillage dataset from this [link](https://www.kaggle.com/datasets/emmarex/plantdisease). After downloading, make sure to correct the dataset path in the code to reflect the location of the dataset.
 
 
-#### 3. Using Google Colab
+
+### 3. Using Google Colab
 If you are using Google Colab, follow these steps:
 
 Upload the dataset to your Google Drive.
@@ -28,6 +30,7 @@ drive.mount('/content/drive')
 
 ````
 
+
 ### 4. Run the Notebook
 
 Once the dataset paths are updated, you can run the entire notebook to train the model:
@@ -37,14 +40,15 @@ Once the dataset paths are updated, you can run the entire notebook to train the
 3. Make sure the dataset paths are correctly updated as shown in the instructions.
 
 
-#### 4. Run the Notebook from Saved Model Parameters
+### 5. Run the Notebook from Saved Model Parameters
 If you have already completed the model training (Parameter Tuning with Cross Validation) and saved the model parameters, you can load the saved model and continue from there. Follow these steps to proceed:
 
 1. Open the notebook PlantVillage_Notebook.ipynb in Google Colab or Jupyter Notebook.
 2. Re-run the imports and data preprocessing steps to ensure the dataset is reloaded and preprocessed. This includes resizing, normalizing, and applying any data augmentation.
 3. Continue the training from "Training and Validation loss / F1 score over 20 epochs"
    
-#### 5. Run the Notebook from GradCAM Visualization
+   
+### 6. Run the Notebook from GradCAM Visualization
 
 **Note**: This step assumes that the model parameters have been saved and the model training has been completed. If the training is not finalized, you need to first complete the training process before running GradCAM.
 
