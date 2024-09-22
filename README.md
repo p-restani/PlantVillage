@@ -105,4 +105,6 @@ print(f'Best F1 Score: {best_f1}')
 print(f'Best Params: {best_params}')
 ````
 
+6. Continue by running the remaining GradCAM cells in the notebook.
+
 
