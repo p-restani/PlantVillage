@@ -82,3 +82,26 @@ class TunableCNN(nn.Module):
 
 ````
 
+4. Re-run the cell to load the CSV file with the results of hyperparameter tuning:
+
+````bash
+# Load the CSV file with a relative path
+results_df = pd.read_csv('hyperparameter_results.csv')
+
+# Display the dataframe to understand its structure
+results_df.head()
+````
+
+5. Re-run the cell to extract the best parameters and their corresponding metrics:
+
+````bash
+# Extract the best parameters and their corresponding metrics
+best_result = results_df.loc[results_df['f1_score'].idxmax()]
+best_params = best_result.to_dict()
+best_f1 = best_params['f1_score']
+
+print(f'Best F1 Score: {best_f1}')
+print(f'Best Params: {best_params}')
+````
+
+
