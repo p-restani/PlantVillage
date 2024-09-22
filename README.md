@@ -9,14 +9,15 @@ Clone the repository to your local machine or save it in your Google Drive:
 
 ```bash
 git clone https://github.com/p-restani/PlantVillage.git
-cd PlantVillage
 ```
 
 
 ### 2. Download the Dataset
 Download the PlantVillage dataset from this [link](https://www.kaggle.com/datasets/emmarex/plantdisease). After downloading, make sure to correct the dataset path in the code to reflect the location of the dataset.
 
-
+````bash
+data_dir = 'your-path-to-dataset/data/PlantVillage'
+````
 
 ### 3. Using Google Colab
 If you are using Google Colab, follow these steps:
