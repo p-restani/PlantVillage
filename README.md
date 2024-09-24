@@ -1,6 +1,58 @@
-# PlantVillage Project
+# PlantVillage-Projekt
 
-This project uses Convolutional Neural Networks (CNNs) for plant disease classification, based on the **PlantVillage** dataset.
+Dieses Projekt verwendet Convolutional Neural Networks (CNNs) zur Klassifizierung von Pflanzenkrankheiten basierend auf dem **PlantVillage**-Datensatz.
+
+
+## Inhaltsverzeichnis
+
+- [Einleitung](#einleitung)
+- [Verwandte Arbeiten](#verwandte-arbeiten)
+- [Methode](#methode)
+- [Ergebnisse](#ergebnisse)
+- [Schlussfolgerung](#schlussfolgerung)
+- [Anleitung](#anleitung)
+- [Literaturverzeichnis](#literaturverzeichnis)
+
+## Einleitung
+
+Eine effektive Identifikation von Pflanzen und Pflanzenkrankheiten ist sowohl für Agrarindustrien als auch für Menschen mit Pflanzen im eigenen Haushalt von entscheidender Bedeutung, um Erträge zu maximieren, Pflanzen gesund zu halten und den Einsatz von Pestiziden und anderen Behandlungsmethoden gezielt zu steuern. Dadurch können Ressourcen effizienter genutzt und Ernteausfälle oder Pflanzenschäden vermieden werden.
+Traditionelle Methoden wie manuelle Inspektion und Mikroskopie sind arbeitsintensiv und erfordern spezielles Fachwissen. Der Einsatz von Convolutional Neural Networks (CNNs) zur Identifikation von Pflanzen und Krankheiten bietet eine skalierbare Lösung, aber die Vielfalt der Pflanzenarten und Krankheitssymptome stellt erhebliche Herausforderungen dar, um eine hohe Genauigkeit über verschiedene Datensätze hinweg zu erreichen.
+
+## Verwandte Arbeiten
+
+Mohanty et al. (2016) evaluierten die Anwendbarkeit von tiefen Convolutional Neural Networks zur Erkennung von Pflanzenkrankheiten und verwendeten dabei die Architekturen AlexNet und GoogLeNet. Sie erreichten eine hohe Genauigkeit von 99,35 % auf dem PlantVillage-Datensatz und zeigten damit die Wirksamkeit dieser Modelle in diesem Bereich auf, wodurch ein starker Maßstab für zukünftige Forschungen zur automatisierten Klassifizierung von Pflanzenkrankheiten gesetzt wurde.
+
+Ein Kaggle-Projekt mit dem Titel „Plant Disease Detection using Keras“ von Emmanuel (2018) implementierte ein CNN zur Klassifizierung von Pflanzenkrankheiten unter Verwendung des PlantVillage-Datensatzes und erreichte eine Validierungsgenauigkeit von 96,77 %. Das Modell wurde mit Keras trainiert und zur weiteren Verwendung gespeichert, wodurch der Einsatz von CNN-Architekturen zur Krankheitsklassifizierung bei Pflanzen demonstriert wird.
+
+Bhattarai (2020) wandte eine ResNet-9-Architektur zur Klassifizierung von Pflanzenkrankheiten an und nutzte dabei ein großes, augmentiertes Datenset, um die Modellleistung zu verbessern. Er trainierte das Modell mit dem New Plant Diseases Dataset (Augmented), indem er es in Trainings- und Validierungsdatensätze aufteilte. Bhattarai verwendete Datenaugmentation, um die Generalisierungsfähigkeit des Modells zu verbessern, und erreichte eine hohe Genauigkeit von 98 %, was die Effektivität von ResNet-9 in der Klassifizierung von Pflanzenkrankheiten zeigt, wobei Einfachheit und Recheneffizienz in Balance gebracht wurden.
+
+## Methode
+
+Ein Convolutional Neural Network (CNN) wurde zur Klassifizierung von Pflanzenkrankheiten unter Verwendung des PlantVillage-Datensatzes implementiert. Die Bilder wurden durch Größenanpassung, Normalisierung und die Anwendung von Datenaugmentationstechniken wie zufälligem Zuschneiden und horizontalem Spiegeln vorverarbeitet, um die Generalisierungsfähigkeit des Modells zu verbessern. Der Datensatz wurde in Trainings-, Test- und Validierungsdatensätze aufgeteilt, um das Modell zu trainieren und dessen Leistung zu bewerten.
+Eine anpassbare CNN-Architektur mit hyperparametrisierbaren Einstellungen wie Lernrate, Batch-Größe, Dropout-Rate, Optimierer und Anzahl der Faltungsschichten wurde entworfen. Diese Architektur wurde ausgewählt, um hierarchische Merkmale effizient zu erfassen, die für die Erkennung von Pflanzenkrankheiten unerlässlich sind.
+Eine Hyperparameter-Suche wurde unter Verwendung eines Random Search-Ansatzes mit Kreuzvalidierung durchgeführt, um die optimale Konfiguration zu finden. Die Lernrate wurde variiert, um ein Gleichgewicht zwischen Konvergenzgeschwindigkeit und Stabilität zu erreichen, während verschiedene Batch-Größen getestet wurden, um das Modell effizient zu aktualisieren. Dropout-Raten wurden verwendet, um Overfitting durch die Kontrolle der Regularisierung zu vermeiden. Adam wurde aufgrund seiner adaptiven Lernraten ausgewählt, während SGD für seine Robustheit in Betracht gezogen wurde. Die Filtergrößen wurden angepasst, um verschiedene Ebenen der Merkmalserfassung in den Faltungsschichten zu erkunden.
+Nach der Identifizierung der optimalen Parameter wurde das Modell mit dem gesamten Datensatz trainiert. Die Auswertung erfolgte anhand des F1-Scores, um dem Klassenungleichgewicht Rechnung zu tragen und eine ausgewogene Leistung über alle Kategorien hinweg sicherzustellen.
+Das optimierte CNN-Modell für die Klassifizierung von Pflanzenkrankheiten hat die folgende Architektur:
+
+- **Convolutional Layer 1:** 32 Filter, 3x3 Kernel-Größe, mit Batch-Normalisierung.
+- **Convolutional Layer 2:** 64 Filter, 3x3 Kernel-Größe, mit Batch-Normalisierung.
+- **Max Pooling Layer:** 2x2 Kernel-Größe, Schrittweite von 2.
+- **Adaptive Average Pooling Layer:** Reduziert die Ausgabe auf 1x1.
+- **Fully Connected Layer 1:** 512 Neuronen.
+- **Dropout Layer:** Dropout-Rate von 0,5.
+- **Fully Connected Layer 2:** Ausgabeschicht mit einer Anzahl von Neuronen, die der Anzahl der Klassen entspricht.
+  
+**Beste Parameter:** Optimierer: Adam, Lernrate: 0,01, Dropout: 0,5, Filter in Conv1: 64, Filter in Conv2: 128, Batch-Größe: 64.
+
+GradCAM wurde ebenfalls implementiert, um Heatmaps zu erstellen, die die Fokusbereiche des Modells während der Vorhersage visualisieren und so die Interpretierbarkeit verbessern. Das leistungsstärkste Modell wurde gespeichert und zur Visualisierung von Vorhersagen mit neuen Daten verwendet, um seine Wirksamkeit für praktische Anwendungen zu validieren.
+
+## Ergebnisse
+
+Die Ergebnisse zeigen die Wirksamkeit der anpassbaren CNN-Architektur zur Klassifizierung von Pflanzenkrankheiten unter Verwendung des PlantVillage-Datensatzes. 
+Wie in Abbildung 1 deutlich wird, zeigt das Klassenverhältnis innerhalb des Trainingsdatensatzes eine erhebliche Variabilität in der Anzahl der Proben in den verschiedenen Klassen. Einige Klassen, wie das 'Tomato Yellow Leaf Curl Virus', haben 3208 Proben, während andere, wie 'Potato healthy', nur 152 Proben aufweisen. Diese Unausgewogenheit kann zu verzerrtem Lernen führen, bei dem das Modell bei den häufiger vertretenen Klassen gut abschneidet, aber bei den unterrepräsentierten Klassen schlecht. Diese Variabilität erfordert einen ausgewogeneren Ansatz zur Modellevaluierung, der über einfache Genauigkeitsmetriken hinausgeht.
+
+![Abbildung 1 - Klassenverteilung](images/bild1.png)
+
 
 ## Instructions
 
