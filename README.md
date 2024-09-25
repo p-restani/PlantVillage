@@ -51,7 +51,8 @@ GradCAM wurde ebenfalls implementiert, um Heatmaps zu erstellen, die die Fokusbe
 Die Ergebnisse zeigen die Wirksamkeit der anpassbaren CNN-Architektur zur Klassifizierung von Pflanzenkrankheiten unter Verwendung des PlantVillage-Datensatzes. 
 Wie in Abbildung 1 deutlich wird, zeigt das Klassenverhältnis innerhalb des Trainingsdatensatzes eine erhebliche Variabilität in der Anzahl der Proben in den verschiedenen Klassen. Einige Klassen, wie das 'Tomato Yellow Leaf Curl Virus', haben 3208 Proben, während andere, wie 'Potato healthy', nur 152 Proben aufweisen. Diese Unausgewogenheit kann zu verzerrtem Lernen führen, bei dem das Modell bei den häufiger vertretenen Klassen gut abschneidet, aber bei den unterrepräsentierten Klassen schlecht. Diese Variabilität erfordert einen ausgewogeneren Ansatz zur Modellevaluierung, der über einfache Genauigkeitsmetriken hinausgeht.
 
-![Abbildung 1 - Klassenverteilung](images/bild1.png "Abbildung 1 - Klassenverteilung")
+![Abbildung 1 - Klassenverteilung](images/bild1.png)
+**Abbildung 1 - Klassenverteilung**
 
 Die Trainings- und Validierungsverlustkurven, dargestellt in Abbildung 2, zeigen einen stetigen Rückgang über 20 Epochen, was darauf hindeutet, dass das Modell effektiv lernt und gut generalisiert, ohne dass es zu einer signifikanten Überanpassung kommt. Dieser gleichmäßige Rückgang des Verlustes deutet darauf hin, dass die Modellparameter während des Trainings angemessen optimiert werden
 
