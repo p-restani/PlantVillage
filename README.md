@@ -2,6 +2,13 @@
 
 Dieses Projekt verwendet Convolutional Neural Networks (CNNs) zur Klassifizierung von Pflanzenkrankheiten basierend auf dem **PlantVillage**-Datensatz.
 
+## Gruppe
+
+**Mitglieder:**
+- Patricia Restani
+- Mohamed Stambouli
+- Oumaima Chakroun
+- Mahmoud Salama
 
 ## Inhaltsverzeichnis
 
@@ -53,28 +60,28 @@ Wie in Abbildung 1 deutlich wird, zeigt das Klassenverhältnis innerhalb des Tra
 
 ![Abbildung 1 - Klassenverteilung](images/bild1.png)
 <p align="center">
-Abbildung 1 - Klassenverteilung
+<strong>Abbildung 1 - Klassenverteilung</strong>
 </p>
 
 Die Trainings- und Validierungsverlustkurven, dargestellt in Abbildung 2, zeigen einen stetigen Rückgang über 20 Epochen, was darauf hindeutet, dass das Modell effektiv lernt und gut generalisiert, ohne dass es zu einer signifikanten Überanpassung kommt. Dieser gleichmäßige Rückgang des Verlustes deutet darauf hin, dass die Modellparameter während des Trainings angemessen optimiert werden
 
 ![Abbildung 2 -  Trainings- und Validierungsverlust pro Epoche](images/bild2.png)
 <p align="center">
-Abbildung 2 - Trainings- und Validierungsverlust pro Epoche
+<strong>Abbildung 2 - Trainings- und Validierungsverlust pro Epoche</strong>
 </p>
 
 Der Verlauf des Validierungs-F1-Scores über die Epochen, dargestellt in Abbildung 3, zeigt eine deutliche Verbesserung und erreicht einen Höchstwert von 0,9062. Dieser hohe F1-Score bestätigt die Fähigkeit des Modells, verschiedene Pflanzenkrankheitskategorien genau zu unterscheiden und sowohl eine hohe Präzision als auch einen hohen Recall zu gewährleisten.
 
 ![Abbildung 3 -  Validierungs-F1-Score pro Epoche](images/bild3.png)
  <p align="center">
-Abbildung 3 - Validierungs-F1-Score pro Epoche
+<strong>Abbildung 3 - Validierungs-F1-Score pro Epoche</strong>
 </p>
 
 Die GradCAM-Visualisierungen für mehrere Bilder aus dem Validierungsdatensatz, dargestellt in Abbildung 4, bieten tiefere Einblicke in den Entscheidungsprozess des Modells. Diese Heatmaps heben die Bereiche der Bilder hervor, die am meisten zu den Vorhersagen des Modells beitragen, und machen es leichter, die Fokusbereiche des Modells zu verstehen. Diese zusätzliche Interpretierbarkeit trägt dazu bei, die Zuverlässigkeit des Modells in praktischen Anwendungen zu validieren.
 
 ![Abbildung 4 -  GradCAM-Visualisierung zur Modellinterpretierbarkeit](images/bild4.png)
 <p align="center">
-Abbildung 4 - GradCAM-Visualisierung zur Modellinterpretierbarkeit
+<strong>Abbildung 4 - GradCAM-Visualisierung zur Modellinterpretierbarkeit</strong>
 </p>
 
 Insgesamt bestätigen die Ergebnisse, dass das vorgeschlagene Modell nicht nur eine hohe Genauigkeit erreicht, sondern auch eine ausgewogene Leistung über alle Krankheitsklassen hinweg zeigt.
@@ -89,7 +96,7 @@ Zusammenfassend bietet der PlantVillage-Datensatz eine gute Grundlage für die K
 
 ## Anleitung
 
-### 1. Clone the Repository
+### 1. Repository klonen
 
 Klonen Sie das Repository auf Ihre lokale Maschine oder speichern Sie es in Ihrem Google Drive:
 
@@ -97,8 +104,7 @@ Klonen Sie das Repository auf Ihre lokale Maschine oder speichern Sie es in Ihre
 git clone https://github.com/p-restani/PlantVillage.git
 ```
 
-
-### 2. Download the Dataset
+### 2. Datensatz herunterladen
 
 Lade das PlantVillage-Dataset von diesem [link](https://www.kaggle.com/datasets/emmarex/plantdisease) herunter. Nach dem Herunterladen stelle sicher, dass du den Pfad zum Dataset im Code anpasst, um den Speicherort des Datasets widerzuspiegeln.
 
@@ -106,7 +112,7 @@ Lade das PlantVillage-Dataset von diesem [link](https://www.kaggle.com/datasets/
 data_dir = 'your-path-to-dataset/data/PlantVillage'
 ````
 
-### 3. Using Google Colab
+### 3. Google Colab verwenden
 
 Wenn Sie Google Colab verwenden, folgen Sie diesen Schritten:
 
@@ -118,6 +124,12 @@ from google.colab import drive
 drive.mount('/content/drive')
 
 ````
+3. Ändern Sie das Arbeitsverzeichnis, um auf den Ordner zuzugreifen, in dem sich Ihr Datensatz befindet. Sie können dies tun, indem Sie den folgenden Befehl ausführen und den Pfad zu Ihrem eigenen Ordner anpassen:
+
+ ````bash
+ %cd /content/drive/MyDrive/IhrVerzeichnisname
+ ````
+Stellen Sie sicher, dass Sie den Pfad entsprechend dem Speicherort Ihres Datensatzes im Google Drive aktualisieren.
 
 
 ### 4. Run the Notebook
@@ -131,11 +143,11 @@ Sobald die Datensatzpfade aktualisiert sind, können Sie das gesamte Notebook au
 ### 5. Run the Notebook from Saved Model Parameters
 
 
-Falls du das Modelltraining (Parameterabstimmung mit Cross-Validation) bereits abgeschlossen und die Modellparameter gespeichert hast, kannst du das gespeicherte Modell laden und von dort aus weitermachen. Folge diesen Schritten, um fortzufahren:
+Falls Sie das Modelltraining (Parameterabstimmung mit Cross-Validation) bereits abgeschlossen und die Modellparameter gespeichert hast, kannst du das gespeicherte Modell laden und von dort aus weitermachen. Folge diesen Schritten, um fortzufahren:
 
-1. Öffne das Notebook PlantVillage_Notebook.ipynb in Google Colab oder Jupyter Notebook.
-2. Führe die Import- und Datenvorverarbeitungsschritte erneut aus, um sicherzustellen, dass der Datensatz neu geladen und vorverarbeitet wird. Dies umfasst die Größenanpassung, Normalisierung und eventuelle Datenaugmentation.
-3. Setze das Training ab dem Abschnitt „Training und Validierungsverlust / F1-Score über 20 Epochen“ fort.
+1. Öffnen Sie das Notebook PlantVillage_Notebook.ipynb in Google Colab oder Jupyter Notebook.
+2. Führen Sie die Import- und Datenvorverarbeitungsschritte erneut aus, um sicherzustellen, dass der Datensatz neu geladen und vorverarbeitet wird. Dies umfasst die Größenanpassung, Normalisierung und eventuelle Datenaugmentation.
+3. Setzen Sie das Training ab dem Abschnitt „Training und Validierungsverlust / F1-Score über 20 Epochen“ fort.
    
 ### 6. Run the Notebook from GradCAM Visualization
 
