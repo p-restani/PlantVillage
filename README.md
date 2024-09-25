@@ -53,7 +53,7 @@ Wie in Abbildung 1 deutlich wird, zeigt das Klassenverhältnis innerhalb des Tra
 
 ![Abbildung 1 - Klassenverteilung](images/bild1.png)
 <p align="center">
-*Abbildung 1 - Klassenverteilung*
+**Abbildung 1 - Klassenverteilung**
 </p>
 
 Die Trainings- und Validierungsverlustkurven, dargestellt in Abbildung 2, zeigen einen stetigen Rückgang über 20 Epochen, was darauf hindeutet, dass das Modell effektiv lernt und gut generalisiert, ohne dass es zu einer signifikanten Überanpassung kommt. Dieser gleichmäßige Rückgang des Verlustes deutet darauf hin, dass die Modellparameter während des Trainings angemessen optimiert werden
