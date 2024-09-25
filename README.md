@@ -63,11 +63,19 @@ Der Verlauf des Validierungs-F1-Scores über die Epochen, dargestellt in Abbildu
 
 Die GradCAM-Visualisierungen für mehrere Bilder aus dem Validierungsdatensatz, dargestellt in Abbildung 4, bieten tiefere Einblicke in den Entscheidungsprozess des Modells. Diese Heatmaps heben die Bereiche der Bilder hervor, die am meisten zu den Vorhersagen des Modells beitragen, und machen es leichter, die Fokusbereiche des Modells zu verstehen. Diese zusätzliche Interpretierbarkeit trägt dazu bei, die Zuverlässigkeit des Modells in praktischen Anwendungen zu validieren.
 
+## Schlussfolgerung
 
-## Instructions
+Der PlantVillage-Datensatz erwies sich als nützlich für die Klassifizierung von Pflanzenkrankheiten mit Convolutional Neural Networks (CNNs), insbesondere für Tomaten, Kartoffeln und Paprika. Die Größe des Datensatzes und die Anzahl der Bilder haben es ermöglicht, Modelle erfolgreich zu trainieren, die in der Lage sind, bestimmte Krankheiten gut zu erkennen.
+
+Der Datensatz ist in seiner Vielfalt begrenzt, da er hauptsächlich auf drei Pflanzenarten fokussiert ist, was es den Modellen erschwert, auf andere Pflanzenarten zu generalisieren. Zudem besteht ein Ungleichgewicht in der Anzahl der Bilder für verschiedene Krankheiten, was die Modellleistung beeinträchtigen kann.
+
+Zusammenfassend bietet der PlantVillage-Datensatz eine gute Grundlage für die Klassifizierung von Krankheiten in den verfügbaren Pflanzenarten, ist jedoch begrenzt in der Generalisierung auf andere Arten. Für gezielte landwirtschaftliche Anwendungen kann er dennoch wertvoll sein, wenn die Modelle entsprechend angepasst werden.
+
+## Anleitung
 
 ### 1. Clone the Repository
-Clone the repository to your local machine or save it in your Google Drive:
+
+Klonen Sie das Repository auf Ihre lokale Maschine oder speichern Sie es in Ihrem Google Drive:
 
 ```bash
 git clone https://github.com/p-restani/PlantVillage.git
@@ -75,17 +83,19 @@ git clone https://github.com/p-restani/PlantVillage.git
 
 
 ### 2. Download the Dataset
-Download the PlantVillage dataset from this [link](https://www.kaggle.com/datasets/emmarex/plantdisease). After downloading, make sure to correct the dataset path in the code to reflect the location of the dataset.
+
+Lade das PlantVillage-Dataset von diesem [link](https://www.kaggle.com/datasets/emmarex/plantdisease) herunter. Nach dem Herunterladen stelle sicher, dass du den Pfad zum Dataset im Code anpasst, um den Speicherort des Datasets widerzuspiegeln.
 
 ````bash
 data_dir = 'your-path-to-dataset/data/PlantVillage'
 ````
 
 ### 3. Using Google Colab
-If you are using Google Colab, follow these steps:
 
-Upload the dataset to your Google Drive.
-Connect your Google Drive to Colab by running the following command:
+Wenn Sie Google Colab verwenden, folgen Sie diesen Schritten:
+
+1. Laden Sie das Dataset auf Ihr Google Drive hoch.
+2. Verbinden Sie Ihr Google Drive mit Colab, indem Sie den folgenden Befehl ausführen:
 
 ````bash
 from google.colab import drive
@@ -96,28 +106,28 @@ drive.mount('/content/drive')
 
 ### 4. Run the Notebook
 
-Once the dataset paths are updated, you can run the entire notebook to train the model:
+Sobald die Datensatzpfade aktualisiert sind, können Sie das gesamte Notebook ausführen, um das Modell zu trainieren:
 
-1. Open the notebook file `PlantVillage.ipynb` in Google Colab or Jupyter Notebook.
-2. Run each cell sequentially by clicking on the "Run" button or pressing `Shift + Enter`.
-3. Make sure the dataset paths are correctly updated as shown in the instructions.
-
+1. Öffnen Sie die Notebook-Datei `PlantVillage.ipynb` in Google Colab oder Jupyter Notebook.
+2. Führen Sie jede Zelle nacheinander aus, indem Sie auf die Schaltfläche "Ausführen" klicken oder `Shift + Enter` drücken.
+3. Stellen Sie sicher, dass die Datensatzpfade gemäß den Anweisungen korrekt aktualisiert wurden.
 
 ### 5. Run the Notebook from Saved Model Parameters
-If you have already completed the model training (Parameter Tuning with Cross Validation) and saved the model parameters, you can load the saved model and continue from there. Follow these steps to proceed:
 
-1. Open the notebook PlantVillage_Notebook.ipynb in Google Colab or Jupyter Notebook.
-2. Re-run the imports and data preprocessing steps to ensure the dataset is reloaded and preprocessed. This includes resizing, normalizing, and applying any data augmentation.
-3. Continue the training from "Training and Validation loss / F1 score over 20 epochs"
-   
+
+Falls du das Modelltraining (Parameterabstimmung mit Cross-Validation) bereits abgeschlossen und die Modellparameter gespeichert hast, kannst du das gespeicherte Modell laden und von dort aus weitermachen. Folge diesen Schritten, um fortzufahren:
+
+1. Öffne das Notebook PlantVillage_Notebook.ipynb in Google Colab oder Jupyter Notebook.
+2. Führe die Import- und Datenvorverarbeitungsschritte erneut aus, um sicherzustellen, dass der Datensatz neu geladen und vorverarbeitet wird. Dies umfasst die Größenanpassung, Normalisierung und eventuelle Datenaugmentation.
+3. Setze das Training ab dem Abschnitt „Training und Validierungsverlust / F1-Score über 20 Epochen“ fort.
    
 ### 6. Run the Notebook from GradCAM Visualization
 
-**Note**: This step assumes that the model parameters have been saved and the model training has been completed. If the training is not finalized, you need to first complete the training process before running GradCAM.
+**Hinweis**: Dieser Schritt setzt voraus, dass die Modellparameter gespeichert und das Modelltraining abgeschlossen wurden. Wenn das Training nicht abgeschlossen ist, müssen Sie den Trainingsprozess zuerst abschließen, bevor Sie GradCAM ausführen.
 
-1. **Open the notebook** `PlantVillage.ipynb` in Google Colab or Jupyter Notebook.
-2. **Re-run the imports and data preprocessing steps** to ensure the dataset is reloaded and preprocessed.
-3. Re-run the cell with CNN architecture definition before loading the model:
+1. **Öffnen Sie das Notebook** PlantVillage.ipynb in Google Colab oder Jupyter Notebook.
+2. **Führen Sie die Importe und die Datenvorverarbeitungsschritte erneut aus**, um sicherzustellen, dass der Datensatz neu geladen und vorverarbeitet wird.
+3. Führen Sie die Zelle mit der Definition der CNN-Architektur erneut aus, bevor Sie das Modell laden:
 
 ````bash
 class TunableCNN(nn.Module):
@@ -145,7 +155,7 @@ class TunableCNN(nn.Module):
 
 ````
 
-4. Re-run the cell to load the CSV file with the results of hyperparameter tuning:
+4. Führen Sie die Zelle erneut aus, um die CSV-Datei mit den Ergebnissen des Hyperparameter-Tunings zu laden:
 
 ````bash
 # Load the CSV file with a relative path
@@ -155,7 +165,7 @@ results_df = pd.read_csv('hyperparameter_results.csv')
 results_df.head()
 ````
 
-5. Re-run the cell to extract the best parameters and their corresponding metrics:
+5. Führen Sie die Zelle erneut aus, um die besten Parameter und deren entsprechende Metriken zu extrahieren:
 
 ````bash
 # Extract the best parameters and their corresponding metrics
@@ -167,6 +177,18 @@ print(f'Best F1 Score: {best_f1}')
 print(f'Best Params: {best_params}')
 ````
 
-6. Continue by running the remaining GradCAM cells in the notebook.
+6. Fahren Sie fort, indem Sie die restlichen GradCAM-Zellen im Notebook ausführen.
+   
+## Literaturverzeichnis
+
+Mohanty, S. P., Hughes, D. P., & Salathé, M. (2016). Using deep learning for image-based plant disease detection. Frontiers in Plant Science, 7, 1419. https://doi.org/10.3389/fpls.2016.01419
+
+Emmanuel, T. O. (2018). . Plant Disease Detection using Keras. Retrieved from https://www.kaggle.com/code/emmarex/plant-disease-detection-using-keras
+
+Bhattarai, S. (2020). "Plant Disease Classification using ResNet-9." Retrieved from https://www.kaggle.com/code/atharvaingle/plant-disease-classification-resnet-99-2/notebook
+
+
+
+
 
 
