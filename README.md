@@ -53,20 +53,29 @@ Wie in Abbildung 1 deutlich wird, zeigt das Klassenverhältnis innerhalb des Tra
 
 ![Abbildung 1 - Klassenverteilung](images/bild1.png)
 <p align="center">
-**Abbildung 1 - Klassenverteilung**
+Abbildung 1 - Klassenverteilung
 </p>
 
 Die Trainings- und Validierungsverlustkurven, dargestellt in Abbildung 2, zeigen einen stetigen Rückgang über 20 Epochen, was darauf hindeutet, dass das Modell effektiv lernt und gut generalisiert, ohne dass es zu einer signifikanten Überanpassung kommt. Dieser gleichmäßige Rückgang des Verlustes deutet darauf hin, dass die Modellparameter während des Trainings angemessen optimiert werden
 
 ![Abbildung 2 -  Trainings- und Validierungsverlust pro Epoche](images/bild2.png)
+<p align="center">
+Abbildung 2 - Trainings- und Validierungsverlust pro Epoche
+</p>
 
 Der Verlauf des Validierungs-F1-Scores über die Epochen, dargestellt in Abbildung 3, zeigt eine deutliche Verbesserung und erreicht einen Höchstwert von 0,9062. Dieser hohe F1-Score bestätigt die Fähigkeit des Modells, verschiedene Pflanzenkrankheitskategorien genau zu unterscheiden und sowohl eine hohe Präzision als auch einen hohen Recall zu gewährleisten.
 
 ![Abbildung 3 -  Validierungs-F1-Score pro Epoche](images/bild3.png)
+ <p align="center">
+Abbildung 3 - Validierungs-F1-Score pro Epoche
+</p>
 
 Die GradCAM-Visualisierungen für mehrere Bilder aus dem Validierungsdatensatz, dargestellt in Abbildung 4, bieten tiefere Einblicke in den Entscheidungsprozess des Modells. Diese Heatmaps heben die Bereiche der Bilder hervor, die am meisten zu den Vorhersagen des Modells beitragen, und machen es leichter, die Fokusbereiche des Modells zu verstehen. Diese zusätzliche Interpretierbarkeit trägt dazu bei, die Zuverlässigkeit des Modells in praktischen Anwendungen zu validieren.
 
 ![Abbildung 4 -  GradCAM-Visualisierung zur Modellinterpretierbarkeit](images/bild4.png)
+<p align="center">
+Abbildung 4 - GradCAM-Visualisierung zur Modellinterpretierbarkeit
+</p>
 
 Insgesamt bestätigen die Ergebnisse, dass das vorgeschlagene Modell nicht nur eine hohe Genauigkeit erreicht, sondern auch eine ausgewogene Leistung über alle Krankheitsklassen hinweg zeigt.
 
