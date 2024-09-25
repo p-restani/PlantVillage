@@ -63,6 +63,10 @@ Der Verlauf des Validierungs-F1-Scores über die Epochen, dargestellt in Abbildu
 
 Die GradCAM-Visualisierungen für mehrere Bilder aus dem Validierungsdatensatz, dargestellt in Abbildung 4, bieten tiefere Einblicke in den Entscheidungsprozess des Modells. Diese Heatmaps heben die Bereiche der Bilder hervor, die am meisten zu den Vorhersagen des Modells beitragen, und machen es leichter, die Fokusbereiche des Modells zu verstehen. Diese zusätzliche Interpretierbarkeit trägt dazu bei, die Zuverlässigkeit des Modells in praktischen Anwendungen zu validieren.
 
+![Abbildung 4 -  GradCAM-Visualisierung zur Modellinterpretierbarkeit](images/bild4.png)
+
+Insgesamt bestätigen die Ergebnisse, dass das vorgeschlagene Modell nicht nur eine hohe Genauigkeit erreicht, sondern auch eine ausgewogene Leistung über alle Krankheitsklassen hinweg zeigt.
+
 ## Schlussfolgerung
 
 Der PlantVillage-Datensatz erwies sich als nützlich für die Klassifizierung von Pflanzenkrankheiten mit Convolutional Neural Networks (CNNs), insbesondere für Tomaten, Kartoffeln und Paprika. Die Größe des Datensatzes und die Anzahl der Bilder haben es ermöglicht, Modelle erfolgreich zu trainieren, die in der Lage sind, bestimmte Krankheiten gut zu erkennen.
